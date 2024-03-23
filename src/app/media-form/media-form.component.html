@@ -1,0 +1,22 @@
+<div class="container">
+    <h2>Medieneintrag hinzufügen</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Titel</label>
+        <input type="text" id="title" name="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="type">Typ</label>
+        <select id="type" name="type" class="form-control" [(ngModel)]="selectedType" (change)="onTypeChange()">
+          <option value="film">Film</option>
+          <option value="buch">Buch</option>
+          <option value="album">Album</option>
+        </select>
+      </div>
+      <div class="form-group" *ngIf="selectedType">
+        <label for="creator">{{ getCreatorLabel(selectedType) }}</label>
+        <input type="text" id="creator" name="creator" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Einreichen</button>
+    </form>
+  </div>
